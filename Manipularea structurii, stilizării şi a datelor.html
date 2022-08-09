@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        </meta>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        </meta>
+        <title>
+            ComboBox
+        </title>
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var selectArray = ["Select course:", "JavaCore", "JavaAdvanced", "JavaDataAcces", "JavaDesktopApplication", "MySQL", "HTML_CSS_JS", "JavaWebApplication", "JavaFX", "JavaWebServices","SoftwareEngineering"]
+                var title = document.createElement("h1");
+                title.innerHTML = "Mandatory courses Java Development at LINK ACADEMY:";
+                title.style.color = "blue";
+                document.body.appendChild(title);
+
+                var newForm = document.createElement("form");
+                document.body.appendChild(newForm);
+
+                var comboBox = document.createElement("select");
+                comboBox.setAttribute("id", "elementList"); 
+                comboBox.setAttribute("onchange", "getOptionValue()");
+                comboBox.style.fontSize = "X-Large";
+                comboBox.style.color = "green";
+                newForm.appendChild(comboBox);
+
+                var textField = document.createElement("p");
+                textField.setAttribute("id", "messageField");
+                textField.style.fontSize = "X-Large";
+                textField.style.fontWeight = "bold";
+                textField.style.color = "red";
+                document.body.appendChild(textField);
+                               
+                for(i=0; i<selectArray.length; i++){
+                    var options = document.createElement("option");
+                    options.value = i;
+                    options.text = selectArray[i];
+                    comboBox.appendChild(options);
+                } 
+
+                function getOptionValue() {    
+                    var selected = document.getElementById("elementList").value;
+                    document.getElementById("messageField").innerHTML = "course id: " + selected;
+            }
+        </script>
+    </body>
+</html>
